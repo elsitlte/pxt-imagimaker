@@ -18,6 +18,9 @@ MiNodeDHT::~MiNodeDHT()
 
 void MiNodeDHT::attach(ConnName connName)
 {
+  if(this->cn != MN_NC) {
+    return;
+  }
 
   MiNodeComponent::initConnector(connName);
   PinName pinName = MiNodeConn::calcP0Name(this->cn);
@@ -167,6 +170,15 @@ int MiNodeDHT::getTemperature()
   return Temperature;
 }
 
+int MiNodeDHT::getFahrenheitTemperature()
+{
+  if (currentTem == -99)
+  {
+    dhtGetHt();
+    currentTem = Temperature;
+  }
+  return Temperature*9/5+32;
+}
 
 int MiNodeDHT::getHumidity()
 {

@@ -1,7 +1,7 @@
 #include "MiNodeComponent.h"
 
 MiNodeComponent::MiNodeComponent() :
-cn(-1),cna(-1),baseId(0)
+cn(MN_NC),cna(Analog_MN_NC),baseId(0)
 {
   this->id = MINODE_ID_NC;
 }
@@ -13,12 +13,20 @@ MiNodeComponent::~MiNodeComponent()
 
 void MiNodeComponent::initConnector(ConnName connName)
 {
+  if(cn != MN_NC) {
+    return;
+  }
+
   cn = connName;
   this->id = MiNodeConn::calcId(connName);
 }
 
 void MiNodeComponent::initAConnector(AnalogConnName connName)
 {
+  if(cna != Analog_MN_NC) {
+    return;
+  }
+
   cna = connName;
   this->id = MiNodeConn::calcId(connName);
 }

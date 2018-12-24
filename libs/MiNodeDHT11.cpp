@@ -170,15 +170,6 @@ int MiNodeDHT::getTemperature()
   return Temperature;
 }
 
-int MiNodeDHT::getFahrenheitTemperature()
-{
-  if (currentTem == -99)
-  {
-    dhtGetHt();
-    currentTem = Temperature;
-  }
-  return Temperature*9/5+32;
-}
 
 int MiNodeDHT::getHumidity()
 {

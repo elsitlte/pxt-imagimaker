@@ -1,7 +1,7 @@
 #include "MiNodeComponent.h"
 
 MiNodeComponent::MiNodeComponent() :
-cn(MN_NC),cna(Analog_MN_NC),baseId(0)
+cn(-1),cna(-1),baseId(0)
 {
   this->id = MINODE_ID_NC;
 }

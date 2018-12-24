@@ -18,9 +18,6 @@ MiNodeDHT::~MiNodeDHT()
 
 void MiNodeDHT::attach(ConnName connName)
 {
-  if(this->cn != MN_NC) {
-    return;
-  }
 
   MiNodeComponent::initConnector(connName);
   PinName pinName = MiNodeConn::calcP0Name(this->cn);
